@@ -1,0 +1,26 @@
+<a-scene id="arscene" embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            
+
+    <a-assets>
+      <video id="arvideo" width="320" height="176" controls="controls" preload muted="true" loop="true" src="https://brimmerdn.github.io/webAR/video/timelapsepainting.mp4" 
+      poster="https://brimmerdn.github.io/webAR/assets/playbutton.png"></video>
+
+      <img id="arimage" width="320" height="176" src="https://brimmerdn.github.io/webAR/assets/playbutton.png">
+
+    </a-assets>
+
+    <!-- <a-marker id="arvideomarker"  preset="hiro"> -->
+    <a-marker id="arvideomarker" type='pattern' url="https://brimmerdn.github.io/webAR/assets/pattern-frame.patt">
+        <!-- Using the asset management system. -->
+        <a-video vidhandler src="#arvideo" rotation="90 0 180" position="0 0 0" scale="1.77 1 1"></a-video>
+
+        <a-entity id="aimage" >
+          <a-image src="#arimage" rotation="90 0 180" position="0 0 0" scale="1.77 1 1"></a-image>
+        </a-entity>
+
+    </a-marker>
+    <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+    <a-entity camera></a-entity>
+
+
+</a-scene>
